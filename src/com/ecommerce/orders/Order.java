@@ -174,4 +174,16 @@ public class Order {
         System.out.printf("Order ID: %s, Customer: %s, Total: $%.2f, Status: %s, Date: %s%n",
                 orderID, customer.getName(), orderTotal, status, orderDate.format(formatter));
     }
+
+    // For Order History
+    @Override
+    public String toString() {
+        return String.format("Order ID: %s | Customer: %s | Total: $%.2f | Status: %s | Date: %s",
+                orderID,
+                customer != null ? customer.getName() : "N/A",
+                orderTotal,
+                status,
+                orderDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
+        );
+    }
 }
